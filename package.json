@@ -1,6 +1,6 @@
 {
   "name": "react-glider-carousel",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A React carousel that uses Glider.js",
   "main": "lib/index.js",
   "repository": "https://github.com/MatteoPieroni/react-glider-carousel.git",
@@ -8,12 +8,16 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "prepublish": "yarn build"
   },
   "peerDependencies": {
     "react": ">15.0.0",
     "react-dom": ">15.0.0"
   },
+  "files": [
+    "lib/*"
+  ],
   "devDependencies": {
     "@babel/core": "^7.4.5",
     "@babel/preset-env": "^7.4.5",

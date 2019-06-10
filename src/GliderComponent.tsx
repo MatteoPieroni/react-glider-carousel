@@ -1,4 +1,4 @@
-import './glider.min.js';
+require('./glider.min.js');
 import * as React from 'react';
 
 export class GliderComponent extends React.Component<IGliderProps> {
@@ -111,24 +111,24 @@ export class GliderComponent extends React.Component<IGliderProps> {
         </div>
 
         {this.props.hasArrows && !this.props.arrows && (
-          <>
-            <button
-              role="button"
-              aria-label="Previous"
-              className="glider-prev"
-              ref={this.setArrowPrevRef}
-            >
-              «
-            </button>
-            <button
-              role="button"
-              aria-label="Next"
-              className="glider-next"
-              ref={this.setArrowNextRef}
-            >
-              »
-            </button>
-          </>
+          <button
+            role="button"
+            aria-label="Previous"
+            className="glider-prev"
+            ref={this.setArrowPrevRef}
+          >
+            «
+          </button>
+        )}
+        {this.props.hasArrows && !this.props.arrows && (
+          <button
+            role="button"
+            aria-label="Next"
+            className="glider-next"
+            ref={this.setArrowNextRef}
+          >
+            »
+          </button>
         )}
         {this.props.hasDots && !this.props.dots && (
           <div role="tablist" className="dots" ref={this.setDotsRef}></div>
