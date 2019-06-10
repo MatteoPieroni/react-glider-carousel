@@ -3,6 +3,7 @@ import * as React from 'react';
 
 export class GliderComponent extends React.Component<IGliderProps> {
   glider: HTMLDivElement | null;
+  gliderInstance: GliderStatic | null;
   arrowPrev: HTMLButtonElement | null;
   arrowNext: HTMLButtonElement | null;
   dots: HTMLDivElement | null;
@@ -16,6 +17,7 @@ export class GliderComponent extends React.Component<IGliderProps> {
     super(props);
 
     this.glider = null;
+    this.gliderInstance = null;
     this.arrowNext = null;
     this.arrowNext = null;
     this.dots = null;
@@ -38,7 +40,7 @@ export class GliderComponent extends React.Component<IGliderProps> {
 
     this.createGlider = () => {
       if (this.glider) {
-        new Glider(this.glider, {
+        this.gliderInstance = new Glider(this.glider, {
           arrows: this.props.hasArrows
             ? this.props.arrows || {
                 prev: this.arrowPrev,
@@ -50,6 +52,23 @@ export class GliderComponent extends React.Component<IGliderProps> {
         });
       }
     };
+  }
+
+  componentWillUpdate(nextProps: IGliderProps) {
+    if (this.gliderInstance) {
+      this.gliderInstance.setOption({
+        arrows: nextProps.hasArrows
+          ? nextProps.arrows || {
+              prev: this.arrowPrev,
+              next: this.arrowNext,
+            }
+          : undefined,
+        dots: nextProps.hasDots ? nextProps.dots || this.dots : undefined,
+        ...nextProps.settings,
+      });
+
+      this.gliderInstance.refresh(true);
+    }
   }
 
   componentDidMount() {

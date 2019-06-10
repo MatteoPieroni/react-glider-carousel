@@ -34,7 +34,9 @@ declare interface IGliderOptions {
 declare interface GliderStatic {
   ref: HTMLDivElement;
   options: IGliderOptions;
-  new (ref: HTMLDivElement, options: IGliderOptions): void;
+  setOption(arguments: IGliderOptions, global?: boolean): GliderStatic;
+  refresh(rebuildPaging: boolean): GliderStatic;
+  new (ref: HTMLDivElement, options: IGliderOptions): GliderStatic;
 }
 
 declare var Glider: GliderStatic;

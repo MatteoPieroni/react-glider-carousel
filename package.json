@@ -1,6 +1,6 @@
 {
   "name": "react-glider-carousel",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A React carousel that uses Glider.js",
   "main": "lib/index.js",
   "repository": "https://github.com/MatteoPieroni/react-glider-carousel.git",
