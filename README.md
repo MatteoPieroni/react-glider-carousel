@@ -1,6 +1,6 @@
 # React Glider Carousel
 
-This package exports a React Component that can be use to create carousels using **[Glider.js](https://nickpiscitelli.github.io/Glider.js/)** (version 1.6.6).
+This package exports a React Component that can be used to create carousels using **[Glider.js](https://nickpiscitelli.github.io/Glider.js/)** (version 1.6.6).
 
 As the author himself puts it:
 
